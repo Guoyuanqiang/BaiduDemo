@@ -1,0 +1,32 @@
+//
+// Prefix header for all source files of the 'BaiduDemo' target in the 'BaiduDemo' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+
+#ifdef DEBUG
+
+#	define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#	define pwd printf("%s %d\n", __PRETTY_FUNCTION__, __LINE__);
+#define debug_object( arg ) debug( @"Object: %@", arg );
+#define debug_int( arg ) debug( @"integer: %i", arg );
+#define debug_float( arg ) NSLog( @"float: %f", arg );
+#define debug_rect(arg) NSLog( @"CGRect ( %f, %f, %f, %f)", arg.origin.x, arg.origin.y, arg.size.width, arg.size.height );
+#define debug_point( arg ) debug( @"CGPoint ( %f, %f )", arg.x, arg.y );
+#define debug_bool( arg )   debug( @"Boolean: %@", ( arg == YES ? @"YES" : @"NO" ) );
+
+#else
+
+#	define DLog(...)
+
+#endif
